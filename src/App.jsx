@@ -6,6 +6,9 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 
 const App = () => {
+  const startListening = SpeechRecognition.startListening({ continuous: true });
+  const { transcript, browserSupportsSpeechRecognition } =
+    useSpeechRecognition();
   return (
     <>
       <div className="container">
@@ -18,7 +21,7 @@ const App = () => {
         <div className="main-content"></div>
         <div className="btn-style">
           <button>Copy</button>
-          <button>Start listening</button>
+          <button onClick={startListening}>Start listening</button>
           <button>Stop listening</button>
         </div>
       </div>
